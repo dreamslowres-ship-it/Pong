@@ -14,8 +14,16 @@ jobs:
           distribution: 'temurin'
           java-version: '17'
 
-      - name: Instalar Android SDK
+      - name: Instalar Android SDK y aceptar licencias
         uses: android-actions/setup-android@v3
+        with:
+          # 🔥 ESTO ES LA CLAVE: Acepta todas las licencias automáticamente
+          accept-android-sdk-licenses: true
+
+      - name: Ajustar permisos del SDK
+        run: |
+          # Aseguramos que el usuario actual pueda escribir en el directorio del SDK
+          sudo chmod -R a+w $ANDROID_HOME
 
       - name: Configurar Keystore y Credenciales
         env:
