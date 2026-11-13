@@ -4,26 +4,56 @@ on: [push]
 jobs:
   build-android:
     runs-on: ubuntu-latest
+    container:
+      # 🔥 CORREGIDO: La imagen oficial es "abarichello", no "barichello"
+      image: abarichello/godot-ci:4.7.2-stable
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Exportar APK con Godot 4.7.2
-        uses: appsinacup/action_export_godot_game@master
-        with:
-          godot-version: '4.7.2-stable'
-          game-name: 'Pong v1.0.0'
-          platform-name: 'Android'
-          android-package: 'com.dreamslowres.pong'
+      - name: Configurar Keystore y Credenciales
+        env:
+          KEYSTORE_BASE64: ${{ secrets.ANDROID_KEYSTORE_BASE64 }}
+          KEYSTORE_USER: ${{ secrets.ANDROID_KEYSTORE_USER }}
+          KEYSTORE_PASSWORD: ${{ secrets.ANDROID_KEYSTORE_PASSWORD }}
+        run: |
+          # 1. Decodificamos el keystore en la ruta absoluta que Godot espera
+          mkdir -p /root/.android
+          echo "$KEYSTORE_BASE64" | tr -d '\n\r ' | base64 -d > /root/.android/release.keystore
           
-          # 🔥 Secretos de tu Keystore
-          secret-android-keystore-base64: ${{ secrets.ANDROID_KEYSTORE_BASE64 }}
-          secret-android-keystore-user: ${{ secrets.ANDROID_KEYSTORE_USER }}
-          secret-android-keystore-password: ${{ secrets.ANDROID_KEYSTORE_PASSWORD }}
+          # 2. Aseguramos que existan las líneas del keystore en el archivo de exportación
+          if ! grep -q "keystore/release=" export_presets.cfg; then
+            echo 'keystore/release=""' >> export_presets.cfg
+            echo 'keystore/release_user=""' >> export_presets.cfg
+            echo 'keystore/release_password=""' >> export_presets.cfg
+          fi
+          
+          # 3. Inyectamos las credenciales reales
+          sed -i "s|keystore/release=\".*\"|keystore/release=\"/root/.android/release.keystore\"|g" export_presets.cfg
+          sed -i "s|keystore/release_user=\".*\"|keystore/release_user=\"$KEYSTORE_USER\"|g" export_presets.cfg
+          sed -i "s|keystore/release_password=\".*\"|keystore/release_password=\"$KEYSTORE_PASSWORD\"|g" export_presets.cfg
+
+      - name: Crear archivo de configuración del editor
+        run: |
+          # La imagen ya tiene Java y el SDK, pero Godot necesita leer las rutas desde aquí
+          mkdir -p ~/.config/godot
+          cat <<EOF > ~/.config/godot/editor_settings-4.tres
+          [gd_resource type="EditorSettings" format=2]
+          
+          [resource]
+          export/android/java_sdk_path = "/usr/lib/jvm/java-17-openjdk-amd64"
+          export/android/android_sdk_path = "/usr/local/lib/android/sdk"
+          EOF
+
+      - name: Exportar APK
+        run: |
+          # El comando directo. Al estar todo preconfigurado en la imagen, no debería fallar.
+          mkdir -p build
+          godot --headless --export-release "Android" build/game.apk
 
       - name: Subir APK como Artefacto
         uses: actions/upload-artifact@v4
         with:
           name: mi-pong-apk
-          path: build/*.apk
+          path: build/game.apk
           if-no-files-found: error
