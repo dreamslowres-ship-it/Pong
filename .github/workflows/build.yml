@@ -39,4 +39,3 @@ jobs:
         with:
           name: mi-pong-apk
           path: build/game.apk
-
