@@ -1,0 +1,7 @@
+# Carpeta de caché de Godot
+.godot/
+
+# Archivos temporales
+build/
+*.apk
+*.aab
