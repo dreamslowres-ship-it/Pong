@@ -10,25 +10,31 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Configurar Plantillas de Godot
+      - name: Configurar Plantillas de Godot y SDK de Java
         run: |
           mkdir -v -p ~/.local/share/godot/export_templates/
           mkdir -v -p ~/.config/godot/
           mv /root/.config/godot ~/.config/godot || true
           mv /root/.local/share/godot/export_templates/4.3.stable ~/.local/share/godot/export_templates/4.3.stable || true
+          
+          # Configurar la ruta de Java para que Godot no falle
+          echo 'export/android/java_sdk_path = "/usr/lib/jvm/java-17-openjdk-amd64"' >> ~/.config/godot/editor_settings-4.3.tres
 
-      - name: Decodificar Keystore
+      - name: Decodificar Keystore e Inyectar Credenciales
         env:
           KEYSTORE_BASE64: ${{ secrets.ANDROID_KEYSTORE_BASE64 }}
+          KEYSTORE_USER: ${{ secrets.ANDROID_KEYSTORE_USER }}
+          KEYSTORE_PASSWORD: ${{ secrets.ANDROID_KEYSTORE_PASSWORD }}
         run: |
           mkdir -p ~/.android
           echo "$KEYSTORE_BASE64" | tr -d '\n\r ' | base64 -d > ~/.android/release.keystore
+          
+          # 🔥 Reemplazamos los placeholders del archivo por los datos reales
+          sed -i "s|RUTA_KEYSTORE|/home/runner/.android/release.keystore|g" export_presets.cfg
+          sed -i "s|USUARIO_KEYSTORE|$KEYSTORE_USER|g" export_presets.cfg
+          sed -i "s|CONTRASEÑA_KEYSTORE|$KEYSTORE_PASSWORD|g" export_presets.cfg
 
       - name: Exportar APK
-        env:
-          GODOT_ANDROID_KEYSTORE_RELEASE_PATH: /home/runner/.android/release.keystore
-          GODOT_ANDROID_KEYSTORE_RELEASE_USER: ${{ secrets.ANDROID_KEYSTORE_USER }}
-          GODOT_ANDROID_KEYSTORE_RELEASE_PASSWORD: ${{ secrets.ANDROID_KEYSTORE_PASSWORD }}
         run: |
           mkdir -p build
           godot --headless --export-release "Android" build/game.apk
