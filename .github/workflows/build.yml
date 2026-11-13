@@ -8,44 +8,42 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Configurar Plantillas y SDK de Java
-        run: |
-          mkdir -v -p ~/.local/share/godot/export_templates/
-          mkdir -v -p ~/.config/godot/
-          
-          # Escribimos la ruta de Java en los archivos de configuración del editor
-          echo 'export/android/java_sdk_path = "/usr/lib/jvm/java-17-openjdk-amd64"' >> ~/.config/godot/editor_settings-4.7.tres
-          echo 'export/android/java_sdk_path = "/usr/lib/jvm/java-17-openjdk-amd64"' >> ~/.config/godot/editor_settings-4.tres
-
-      - name: Decodificar Keystore y Parchear export_presets.cfg
+      - name: Configurar Keystore
         env:
           KEYSTORE_BASE64: ${{ secrets.ANDROID_KEYSTORE_BASE64 }}
           KEYSTORE_USER: ${{ secrets.ANDROID_KEYSTORE_USER }}
           KEYSTORE_PASSWORD: ${{ secrets.ANDROID_KEYSTORE_PASSWORD }}
         run: |
-          # Decodificamos el keystore en la raíz del contenedor (ruta absoluta)
-          echo "$KEYSTORE_BASE64" | tr -d '\n\r ' | base64 -d > /home/runner/release.keystore
+          mkdir -p /home/runner/.android
+          echo "$KEYSTORE_BASE64" | tr -d '\n\r ' | base64 -d > /home/runner/.android/release.keystore
           
-          # Reemplazamos los placeholders con los datos reales
-          sed -i "s|RUTA_KEYSTORE|/home/runner/release.keystore|g" export_presets.cfg
-          sed -i "s|USUARIO_KEYSTORE|$KEYSTORE_USER|g" export_presets.cfg
-          sed -i "s|CONTRASEÑA_KEYSTORE|$KEYSTORE_PASSWORD|g" export_presets.cfg
+          # Aseguramos que las líneas del keystore existan en export_presets.cfg
+          if ! grep -q "keystore/release=" export_presets.cfg; then
+            echo 'keystore/release=""' >> export_presets.cfg
+            echo 'keystore/release_user=""' >> export_presets.cfg
+            echo 'keystore/release_password=""' >> export_presets.cfg
+          fi
+          
+          # Inyectamos las credenciales reales
+          sed -i "s|keystore/release=\".*\"|keystore/release=\"/home/runner/.android/release.keystore\"|g" export_presets.cfg
+          sed -i "s|keystore/release_user=\".*\"|keystore/release_user=\"$KEYSTORE_USER\"|g" export_presets.cfg
+          sed -i "s|keystore/release_password=\".*\"|keystore/release_password=\"$KEYSTORE_PASSWORD\"|g" export_presets.cfg
 
-      - name: Instalar Godot 4.7.2 y Exportar APK
-        uses: abarichello/godot-ci@master
+      - name: Exportar APK con Godot 4.7.2
+        uses: firebelley/godot-export@v8.0.0
         with:
-          godot-version: '4.7.2' # 🔥 ¡La versión exacta que necesitas!
-          export-preset: 'Android'
+          # 🔥 URLs exactas para Godot 4.7.2 y sus plantillas
+          godot_executable_download_url: https://github.com/godotengine/godot-builds/releases/download/4.7.2-stable/Godot_v4.7.2-stable_linux.x86_64.zip
+          godot_export_templates_download_url: https://github.com/godotengine/godot-builds/releases/download/4.7.2-stable/Godot_v4.7.2-stable_export_templates.tpz
+          relative_project_path: ./
+          presets_to_export: Android
         env:
           JAVA_HOME: /usr/lib/jvm/java-17-openjdk-amd64
           ANDROID_HOME: /usr/local/lib/android/sdk
-          GODOT_ANDROID_KEYSTORE_RELEASE_PATH: /home/runner/release.keystore
-          GODOT_ANDROID_KEYSTORE_RELEASE_USER: ${{ secrets.ANDROID_KEYSTORE_USER }}
-          GODOT_ANDROID_KEYSTORE_RELEASE_PASSWORD: ${{ secrets.ANDROID_KEYSTORE_PASSWORD }}
 
       - name: Subir APK como Artefacto
         uses: actions/upload-artifact@v4
         with:
           name: mi-pong-apk
-          path: build/game.apk
+          path: build/*.apk
           if-no-files-found: error
