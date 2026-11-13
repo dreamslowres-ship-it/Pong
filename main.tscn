@@ -1,0 +1,258 @@
+[gd_scene format=3 uid="uid://0d043jkvs758"]
+
+[ext_resource type="Script" uid="uid://diak504hkmkmd" path="res://main.gd" id="1_h2yge"]
+[ext_resource type="PackedScene" uid="uid://bnc5fuu2pp55t" path="res://paleta.tscn" id="1_ig7tw"]
+[ext_resource type="Theme" uid="uid://c0thhwyr50lj2" path="res://tema_minimalista.tres" id="3_7mycd"]
+[ext_resource type="Shader" uid="uid://81iv7f837a3q" path="res://label_23.gdshader" id="3_272bh"]
+[ext_resource type="PackedScene" uid="uid://by6dpcesbw6g6" path="res://lanzador_pausa.tscn" id="4_1bvp3"]
+[ext_resource type="AudioStream" uid="uid://danpok7egn8sr" path="res://Rebote.wav" id="4_lquwl"]
+[ext_resource type="FontFile" uid="uid://x18j7tkvriu1" path="res://Grows.ttf" id="5_5vw27"]
+[ext_resource type="Shader" uid="uid://bewqx86l7b3br" path="res://main.gdshader" id="5_lquwl"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g7b7a"]
+size = Vector2(1080, 10)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gyc6d"]
+size = Vector2(10, 1080)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_gc0em"]
+shader = ExtResource("3_272bh")
+shader_parameter/velocidad_barrido = 1.5
+shader_parameter/ancho_barrido = 0.3
+shader_parameter/intensidad_brillo = 1.5
+shader_parameter/color_brillo = Color(1, 1, 1, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_6qx4q"]
+shader = ExtResource("5_lquwl")
+shader_parameter/scanline_amount = 0.25
+shader_parameter/scanline_density = 300.0
+shader_parameter/roll_amount = 0.12
+shader_parameter/roll_speed = 0.4
+shader_parameter/roll_width = 0.1
+shader_parameter/brightness = 1.05
+shader_parameter/saturation = 1.15
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6qx4q"]
+size = Vector2(1080, 13)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hqkgv"]
+size = Vector2(1080, 13)
+
+[node name="Main" type="Node2D" unique_id=2048628039 node_paths=PackedStringArray("lanzador_pausa")]
+texture_filter = 1
+script = ExtResource("1_h2yge")
+lanzador_pausa = NodePath("LanzadorPausa")
+metadata/_edit_horizontal_guides_ = [8.0]
+metadata/_edit_vertical_guides_ = [120.0]
+
+[node name="FondoArena" type="ColorRect" parent="." unique_id=1674886641]
+offset_left = 630.0
+offset_right = 1710.0
+offset_bottom = 1080.0
+color = Color(0.09816871, 0.09816872, 0.09816872, 1)
+
+[node name="LineaDivisora" type="ColorRect" parent="." unique_id=1127249049]
+offset_left = 630.0
+offset_top = 530.0
+offset_right = 1710.0
+offset_bottom = 550.0
+color = Color(0.38512444, 0.38512444, 0.38512442, 1)
+
+[node name="ParedSuperior" type="StaticBody2D" parent="." unique_id=2069392476]
+position = Vector2(1170, -5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ParedSuperior" unique_id=2089857916]
+shape = SubResource("RectangleShape2D_g7b7a")
+
+[node name="ParedInferior" type="StaticBody2D" parent="." unique_id=2109050409]
+position = Vector2(1170, 1085)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ParedInferior" unique_id=57471634]
+shape = SubResource("RectangleShape2D_g7b7a")
+
+[node name="ParedDerecha" type="StaticBody2D" parent="." unique_id=1073937033]
+position = Vector2(1715, 540)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ParedDerecha" unique_id=1750267342]
+shape = SubResource("RectangleShape2D_gyc6d")
+
+[node name="ParedIzquierda" type="StaticBody2D" parent="." unique_id=115309627]
+position = Vector2(625, 540)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ParedIzquierda" unique_id=1026513615]
+shape = SubResource("RectangleShape2D_gyc6d")
+
+[node name="JugadorAbajo" parent="." unique_id=947197350 node_paths=PackedStringArray("boton_izquierdo", "boton_derecho") instance=ExtResource("1_ig7tw")]
+texture_filter = 1
+position = Vector2(1170, 1050)
+boton_izquierdo = NodePath("../CanvasLayer/Izquierdo")
+boton_derecho = NodePath("../CanvasLayer/Derecho")
+
+[node name="IAArriba" parent="." unique_id=2117530878 instance=ExtResource("1_ig7tw")]
+position = Vector2(1170, 30)
+es_ia = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1582484428]
+layer = 5
+
+[node name="Izquierdo" type="Button" parent="CanvasLayer" unique_id=1553624792]
+offset_right = 630.0
+offset_bottom = 1080.0
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer/Izquierdo" unique_id=1998935116]
+layout_mode = 0
+offset_right = 630.0
+offset_bottom = 1080.0
+offset_transform_enabled = true
+mouse_filter = 2
+color = Color(0.039215688, 0.039215688, 0.039215688, 1)
+
+[node name="Derecho" type="Button" parent="CanvasLayer" unique_id=1819690514]
+offset_left = 1710.0
+offset_right = 2340.0
+offset_bottom = 1080.0
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer/Derecho" unique_id=1115845566]
+layout_mode = 0
+offset_right = 630.0
+offset_bottom = 1080.0
+offset_transform_enabled = true
+mouse_filter = 2
+color = Color(0.039998766, 0.039998755, 0.03999876, 1)
+
+[node name="TextoPuntajeIA" type="Label" parent="CanvasLayer" unique_id=1929428655]
+visible = false
+custom_minimum_size = Vector2(300, 0)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -151.0
+offset_top = -393.0
+offset_right = 149.0
+offset_bottom = -51.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.38431373, 0.38431373, 0.38431373, 1)
+theme_override_font_sizes/font_size = 250
+text = "0"
+horizontal_alignment = 1
+
+[node name="TextoPuntajePlayer" type="Label" parent="CanvasLayer" unique_id=2098628196]
+visible = false
+custom_minimum_size = Vector2(300, 0)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -150.0
+offset_top = 50.0
+offset_right = 150.0
+offset_bottom = 392.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0.38431373, 0.38431373, 0.38431373, 1)
+theme_override_font_sizes/font_size = 250
+text = "1"
+horizontal_alignment = 1
+
+[node name="PantallaFinal" type="ColorRect" parent="CanvasLayer" unique_id=1313373823]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -540.0
+offset_top = -540.0
+offset_right = 540.0
+offset_bottom = 540.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.123436175, 0.12343613, 0.123436145, 0.78039217)
+
+[node name="gg" type="HBoxContainer" parent="CanvasLayer/PantallaFinal" unique_id=1079800486]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -253.0
+offset_top = -83.5
+offset_right = 253.0
+offset_bottom = 83.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextoResultado" type="Label" parent="CanvasLayer/PantallaFinal/gg" unique_id=1965257650]
+material = SubResource("ShaderMaterial_gc0em")
+layout_mode = 2
+theme = ExtResource("3_7mycd")
+theme_override_colors/font_color = Color(0.7664711, 0.76647115, 0.7664711, 1)
+theme_override_fonts/font = ExtResource("5_5vw27")
+theme_override_font_sizes/font_size = 100
+text = "VICTORY"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer/PantallaFinal" unique_id=1103162934]
+material = SubResource("ShaderMaterial_6qx4q")
+custom_minimum_size = Vector2(1080, 1080)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -540.0
+offset_top = -540.0
+offset_right = 540.0
+offset_bottom = 540.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer/PantallaFinal/ColorRect" unique_id=271417022]
+material = SubResource("ShaderMaterial_6qx4q")
+custom_minimum_size = Vector2(1080, 1080)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -540.0
+offset_top = -540.0
+offset_right = 540.0
+offset_bottom = 540.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=2111063711]
+position = Vector2(1170, 540)
+
+[node name="GolArriba" type="Area2D" parent="." unique_id=2103322650]
+position = Vector2(1170, 10)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GolArriba" unique_id=365558160]
+position = Vector2(0, -2.5)
+shape = SubResource("RectangleShape2D_6qx4q")
+
+[node name="GolAbajo" type="Area2D" parent="." unique_id=1242517852]
+position = Vector2(1170, 1073)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GolAbajo" unique_id=835801172]
+shape = SubResource("RectangleShape2D_hqkgv")
+
+[node name="LanzadorPausa" parent="." unique_id=123518595 instance=ExtResource("4_1bvp3")]
+
+[node name="SonidoGol" type="AudioStreamPlayer" parent="." unique_id=648894772]
+stream = ExtResource("4_lquwl")
+bus = &"SFX"
+
+[connection signal="body_entered" from="GolArriba" to="." method="_on_gol_arriba_body_entered"]
+[connection signal="body_entered" from="GolAbajo" to="." method="_on_gol_abajo_body_entered"]

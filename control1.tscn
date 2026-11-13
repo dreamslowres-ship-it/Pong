@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://bn0sfggsssc42"]
+
+[node name="CanvasLayer" type="CanvasLayer" unique_id=1977605446]
+visible = false
+
+[node name="Izquierdo" type="Button" parent="." unique_id=1387387070]
+offset_right = 630.0
+offset_bottom = 1080.0
+
+[node name="ColorRect" type="ColorRect" parent="Izquierdo" unique_id=769202202]
+layout_mode = 0
+offset_right = 630.0
+offset_bottom = 1080.0
+offset_transform_enabled = true
+mouse_filter = 2
+color = Color(0.21176471, 0.21176471, 0.21176471, 1)
+
+[node name="Derecho" type="Button" parent="." unique_id=1819384898]
+offset_left = 1710.0
+offset_right = 2340.0
+offset_bottom = 1080.0
+
+[node name="ColorRect" type="ColorRect" parent="Derecho" unique_id=1320220527]
+layout_mode = 0
+offset_right = 630.0
+offset_bottom = 1080.0
+offset_transform_enabled = true
+mouse_filter = 2
+color = Color(0.21176471, 0.21176471, 0.21176471, 1)

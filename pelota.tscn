@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://d4et6lwqb03ae"]
+
+[ext_resource type="Script" uid="uid://b1cnct66nyvmi" path="res://pelota.gd" id="1_sha3n"]
+[ext_resource type="AudioStream" uid="uid://d4g4f66y36m5t" path="res://PELOTA_FX.wav" id="2_p7cd6"]
+[ext_resource type="Texture2D" uid="uid://dmq2m6p04lgu1" path="res://Sin título 104-bf1d.png" id="3_p7cd6"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gyc6d"]
+
+[node name="pelota" type="CharacterBody2D" unique_id=1177112824]
+script = ExtResource("1_sha3n")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1849164392]
+scale = Vector2(1.8, 1.8)
+shape = SubResource("RectangleShape2D_gyc6d")
+
+[node name="SonidoRebote" type="AudioStreamPlayer" parent="." unique_id=773985620]
+stream = ExtResource("2_p7cd6")
+bus = &"SFX"
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=397884197]
+texture_filter = 1
+texture = ExtResource("3_p7cd6")

@@ -1,0 +1,295 @@
+[gd_scene format=3 uid="uid://7ctoh26726s8"]
+
+[ext_resource type="Script" uid="uid://i7fupdcop5hq" path="res://settings.gd" id="1_x2hje"]
+[ext_resource type="FontFile" uid="uid://x18j7tkvriu1" path="res://Grows.ttf" id="2_3ykye"]
+[ext_resource type="Texture2D" uid="uid://gcjxf886cbpl" path="res://BarraVolumen.png" id="2_nkug2"]
+[ext_resource type="Shader" uid="uid://ckesqmq70bcpi" path="res://settings.gdshader" id="4_gc0em"]
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_nkug2"]
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_x2hje"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3ykye"]
+atlas = ExtResource("2_nkug2")
+region = Rect2(0, 0, 490, 110)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gc0em"]
+atlas = ExtResource("2_nkug2")
+region = Rect2(490, 0, 490, 110)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cj1lu"]
+atlas = ExtResource("2_nkug2")
+region = Rect2(980, 0, 490, 110)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_71mqq"]
+atlas = ExtResource("2_nkug2")
+region = Rect2(1470, 0, 490, 110)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3j6r5"]
+atlas = ExtResource("2_nkug2")
+region = Rect2(1960, 0, 490, 110)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3lj6o"]
+atlas = ExtResource("2_nkug2")
+region = Rect2(2450, 0, 490, 110)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6mhpt"]
+atlas = ExtResource("2_nkug2")
+region = Rect2(2940, 0, 490, 110)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ohexs"]
+atlas = ExtResource("2_nkug2")
+region = Rect2(3430, 0, 490, 110)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1k4ii"]
+atlas = ExtResource("2_nkug2")
+region = Rect2(3920, 0, 490, 110)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_82xqq"]
+atlas = ExtResource("2_nkug2")
+region = Rect2(4410, 0, 490, 110)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y43lv"]
+atlas = ExtResource("2_nkug2")
+region = Rect2(4900, 0, 490, 110)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_g7b7a"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3ykye")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gc0em")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cj1lu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_71mqq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3j6r5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3lj6o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6mhpt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ohexs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1k4ii")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_82xqq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y43lv")
+}],
+"loop": 2,
+"name": &"default",
+"speed": 10.0
+}]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_g7b7a"]
+shader = ExtResource("4_gc0em")
+shader_parameter/color_a = Color(0.6745098, 0.6745098, 0.6745098, 1)
+shader_parameter/color_b = Color(0.08235294, 0.08235294, 0.08235294, 1)
+
+[node name="settings" type="Control" unique_id=38889859 node_paths=PackedStringArray("btn_izquierdo", "btn_derecho")]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_x2hje")
+btn_izquierdo = NodePath("CanvasLayer/Izquierdo")
+btn_derecho = NodePath("CanvasLayer/Derecho")
+metadata/_edit_vertical_guides_ = [-98.0]
+
+[node name="CAPA" type="CanvasLayer" parent="." unique_id=1447709920]
+layer = 20
+
+[node name="AreaTactilBarra" type="Control" parent="CAPA" unique_id=1666844969]
+custom_minimum_size = Vector2(460, 200)
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -228.0
+offset_top = -35.0
+offset_right = 232.0
+offset_bottom = 265.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 4
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1361340447]
+layout_mode = 0
+offset_left = 630.0
+offset_right = 1710.0
+offset_bottom = 1080.0
+color = Color(0.08235294, 0.08235294, 0.08235294, 1)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1582484428]
+
+[node name="Izquierdo" type="Button" parent="CanvasLayer" unique_id=1553624792]
+offset_right = 630.0
+offset_bottom = 1080.0
+theme_override_styles/normal = SubResource("StyleBoxLine_nkug2")
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer/Izquierdo" unique_id=1998935116]
+layout_mode = 0
+offset_right = 630.0
+offset_bottom = 1080.0
+offset_transform_enabled = true
+mouse_filter = 2
+color = Color(0.039215688, 0.039215688, 0.039215688, 1)
+
+[node name="Derecho" type="Button" parent="CanvasLayer" unique_id=1819690514]
+offset_left = 1710.0
+offset_right = 2340.0
+offset_bottom = 1080.0
+theme_override_styles/normal = SubResource("StyleBoxLine_x2hje")
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer/Derecho" unique_id=1115845566]
+layout_mode = 0
+offset_right = 630.0
+offset_bottom = 1080.0
+offset_transform_enabled = true
+mouse_filter = 2
+color = Color(0.039215688, 0.039215688, 0.039215688, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1297121551]
+layout_mode = 0
+offset_left = 630.0
+offset_right = 1710.0
+offset_bottom = 1080.0
+theme_override_constants/separation = 40
+
+[node name="TextoTitulo" type="Label" parent="VBoxContainer" unique_id=4866606]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_3ykye")
+theme_override_font_sizes/font_size = 100
+text = "
+ SETTINGS 
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TextoSeccion" type="Label" parent="VBoxContainer" unique_id=2095577321]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+text = "VOLUMEN"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TextoCreditos" type="RichTextLabel" parent="VBoxContainer" unique_id=1240043730]
+custom_minimum_size = Vector2(900, 350)
+custom_maximum_size = Vector2(1000, 800)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/normal_font_size = 50
+theme_override_font_sizes/bold_font_size = 50
+theme_override_font_sizes/bold_italics_font_size = 50
+theme_override_font_sizes/italics_font_size = 50
+theme_override_font_sizes/mono_font_size = 50
+autowrap_mode = 2
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ContenedorVisual" type="Control" parent="." unique_id=882284771]
+anchors_preset = 0
+offset_left = 941.0
+offset_top = 500.0
+offset_right = 1401.0
+offset_bottom = 720.0
+mouse_filter = 2
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="ContenedorVisual" unique_id=1994220499]
+position = Vector2(759, 324)
+sprite_frames = SubResource("SpriteFrames_g7b7a")
+frame = 2
+frame_progress = 0.009653092
+offset = Vector2(-529, -218)
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="." unique_id=2057243933]
+layout_mode = 0
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 1020.0
+offset_top = 100.0
+offset_right = 1280.0
+offset_bottom = 957.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="VBoxContainer2" unique_id=1601283405]
+custom_minimum_size = Vector2(0, 120)
+layout_mode = 2
+text = "
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+"
+
+[node name="BotonVolver" type="Button" parent="." unique_id=186918563]
+custom_minimum_size = Vector2(260, 0)
+custom_maximum_size = Vector2(260, -1)
+layout_mode = 0
+offset_left = 1040.0
+offset_top = 859.0
+offset_right = 1300.0
+offset_bottom = 967.0
+theme_override_font_sizes/font_size = 50
+text = "VOLVER
+"
+
+[node name="Porcentajes" type="Label" parent="." unique_id=1010846058]
+material = SubResource("ShaderMaterial_g7b7a")
+layout_mode = 0
+offset_left = 1035.0
+offset_top = 568.0
+offset_right = 1326.0
+offset_bottom = 654.0
+theme_override_fonts/font = ExtResource("2_3ykye")
+theme_override_font_sizes/font_size = 40
+text = "50%"
+horizontal_alignment = 1
+vertical_alignment = 1

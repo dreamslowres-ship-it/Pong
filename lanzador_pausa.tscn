@@ -1,0 +1,355 @@
+[gd_scene format=3 uid="uid://by6dpcesbw6g6"]
+
+[ext_resource type="Script" uid="uid://b6fc0nb65u5rg" path="res://lanzador_pausa.gd" id="1_7n3hy"]
+[ext_resource type="Texture2D" uid="uid://c4hgrlwqmwcab" path="res://LanzadorV3.png" id="2_y36dk"]
+[ext_resource type="Texture2D" uid="uid://cd5738c8kt14q" path="res://Sin título 115-a103.png" id="3_7n3hy"]
+[ext_resource type="FontFile" uid="uid://b40h4g7yfnbbl" path="res://ShareTechMono-Regular.ttf" id="4_88xc3"]
+[ext_resource type="FontFile" uid="uid://x18j7tkvriu1" path="res://Grows.ttf" id="5_y36dk"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mn8ag"]
+atlas = ExtResource("2_y36dk")
+region = Rect2(960, 0, 120, 120)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c6x84"]
+atlas = ExtResource("2_y36dk")
+region = Rect2(1080, 0, 120, 120)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tc6fb"]
+atlas = ExtResource("2_y36dk")
+region = Rect2(1200, 0, 120, 120)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gi0o7"]
+atlas = ExtResource("2_y36dk")
+region = Rect2(1320, 0, 120, 120)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jdnf5"]
+atlas = ExtResource("2_y36dk")
+region = Rect2(1440, 0, 120, 120)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j2saf"]
+atlas = ExtResource("2_y36dk")
+region = Rect2(1560, 0, 120, 120)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iahnf"]
+atlas = ExtResource("2_y36dk")
+region = Rect2(1680, 0, 120, 120)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bm0ae"]
+atlas = ExtResource("2_y36dk")
+region = Rect2(1800, 0, 120, 120)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gsexo"]
+atlas = ExtResource("2_y36dk")
+region = Rect2(1920, 0, 120, 120)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_amhke"]
+atlas = ExtResource("2_y36dk")
+region = Rect2(1920, 0, 120, 120)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2llaj"]
+atlas = ExtResource("2_y36dk")
+region = Rect2(1800, 0, 120, 120)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7p56e"]
+atlas = ExtResource("2_y36dk")
+region = Rect2(1680, 0, 120, 120)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jxl6j"]
+atlas = ExtResource("2_y36dk")
+region = Rect2(1560, 0, 120, 120)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r11g3"]
+atlas = ExtResource("2_y36dk")
+region = Rect2(1440, 0, 120, 120)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xt0ya"]
+atlas = ExtResource("2_y36dk")
+region = Rect2(1320, 0, 120, 120)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ckwnq"]
+atlas = ExtResource("2_y36dk")
+region = Rect2(1200, 0, 120, 120)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p1rhv"]
+atlas = ExtResource("2_y36dk")
+region = Rect2(1080, 0, 120, 120)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_otjtv"]
+atlas = ExtResource("2_y36dk")
+region = Rect2(960, 0, 120, 120)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_88xc3"]
+atlas = ExtResource("2_y36dk")
+region = Rect2(0, 0, 120, 120)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y36dk"]
+atlas = ExtResource("2_y36dk")
+region = Rect2(120, 0, 120, 120)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cqf4t"]
+atlas = ExtResource("2_y36dk")
+region = Rect2(240, 0, 120, 120)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_svfgj"]
+atlas = ExtResource("2_y36dk")
+region = Rect2(360, 0, 120, 120)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n0yms"]
+atlas = ExtResource("2_y36dk")
+region = Rect2(480, 0, 120, 120)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y58d1"]
+atlas = ExtResource("2_y36dk")
+region = Rect2(600, 0, 120, 120)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ldgts"]
+atlas = ExtResource("2_y36dk")
+region = Rect2(720, 0, 120, 120)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u7ya4"]
+atlas = ExtResource("2_y36dk")
+region = Rect2(840, 0, 120, 120)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1ju7f"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mn8ag")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c6x84")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tc6fb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gi0o7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jdnf5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j2saf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iahnf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bm0ae")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gsexo")
+}],
+"loop": 0,
+"name": &"apaga",
+"speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_amhke")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2llaj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7p56e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jxl6j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r11g3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xt0ya")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ckwnq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p1rhv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_otjtv")
+}],
+"loop": 0,
+"name": &"enciende",
+"speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_88xc3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y36dk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cqf4t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_svfgj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n0yms")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y58d1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ldgts")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u7ya4")
+}],
+"loop": 1,
+"name": &"girar",
+"speed": 10.0
+}]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_gr44q"]
+texture = ExtResource("3_7n3hy")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_7n3hy"]
+texture = ExtResource("3_7n3hy")
+texture_margin_left = 20.0
+texture_margin_top = 20.0
+texture_margin_right = 20.0
+texture_margin_bottom = 20.0
+
+[sub_resource type="Theme" id="Theme_y36dk"]
+resource_local_to_scene = true
+default_font = ExtResource("4_88xc3")
+Button/font_sizes/font_size = 32
+Button/styles/disabled = SubResource("StyleBoxTexture_7n3hy")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_1p8b5"]
+texture = ExtResource("3_7n3hy")
+texture_margin_left = 20.0
+texture_margin_top = 20.0
+texture_margin_right = 20.0
+texture_margin_bottom = 20.0
+
+[node name="LanzadorPausa" type="Node2D" unique_id=695513730]
+position = Vector2(1170, 540)
+script = ExtResource("1_7n3hy")
+metadata/_edit_vertical_guides_ = [731.0]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=138636816]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_1ju7f")
+animation = &"apaga"
+
+[node name="CapaPausa" type="CanvasLayer" parent="." unique_id=70816862]
+layer = 121
+
+[node name="MenuPausaPanel" type="Control" parent="CapaPausa" unique_id=333059028]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="CapaPausa/MenuPausaPanel" unique_id=309793224]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 630.0
+offset_right = -630.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.019607844, 0.019607844, 0.019607844, 0.6)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CapaPausa/MenuPausaPanel" unique_id=258561286]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 630.0
+offset_right = -630.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 60
+
+[node name="Label" type="Label" parent="CapaPausa/MenuPausaPanel/VBoxContainer" unique_id=1882425312]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_y36dk")
+theme_override_font_sizes/font_size = 100
+text = "
+MENU
+
+"
+horizontal_alignment = 1
+
+[node name="BtnContinuar" type="Button" parent="CapaPausa/MenuPausaPanel/VBoxContainer" unique_id=1386649494]
+custom_minimum_size = Vector2(450, 120)
+custom_maximum_size = Vector2(450, -1)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = SubResource("StyleBoxTexture_gr44q")
+text = " CONTINUAR "
+
+[node name="BtnHome" type="Button" parent="CapaPausa/MenuPausaPanel/VBoxContainer" unique_id=355079763]
+custom_minimum_size = Vector2(450, 120)
+custom_maximum_size = Vector2(450, -1)
+layout_mode = 2
+size_flags_horizontal = 4
+theme = SubResource("Theme_y36dk")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = SubResource("StyleBoxTexture_1p8b5")
+text = "HOME"
+
+[node name="LabelIA" type="Label" parent="CapaPausa" unique_id=596676714]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -540.0
+offset_top = -196.0
+offset_right = 540.0
+offset_bottom = -110.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.5058824, 0.5058824, 0.5058824, 1)
+theme_override_fonts/font = ExtResource("5_y36dk")
+theme_override_font_sizes/font_size = 90
+text = "HOLA"
+horizontal_alignment = 1
+
+[node name="LabelJugador" type="Label" parent="CapaPausa" unique_id=404584590]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -540.0
+offset_top = 130.0
+offset_right = 540.0
+offset_bottom = 216.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.50633526, 0.50633526, 0.50633526, 1)
+theme_override_fonts/font = ExtResource("5_y36dk")
+theme_override_font_sizes/font_size = 90
+text = "LA"
+horizontal_alignment = 1
+
+[node name="ZonaTactilCentro" type="Control" parent="." unique_id=1356867194]
+custom_minimum_size = Vector2(1000, 1000)
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2

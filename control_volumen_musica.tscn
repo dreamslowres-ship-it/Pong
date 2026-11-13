@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://cvatvty0bot2i"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_g7b7a"]
+
+[node name="ControlVolumenMusica" type="VBoxContainer" unique_id=592756726]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="LabelTitulo" type="Label" parent="." unique_id=2101524911]
+layout_mode = 2
+
+[node name="ContenedorFila" type="HBoxContainer" parent="." unique_id=1688120757]
+layout_mode = 2
+
+[node name="AreaTactilBarra" type="Control" parent="ContenedorFila" unique_id=1620450241]
+layout_mode = 2
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="ContenedorFila/AreaTactilBarra" unique_id=1524046965]
+sprite_frames = SubResource("SpriteFrames_g7b7a")

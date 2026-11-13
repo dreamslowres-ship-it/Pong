@@ -1,0 +1,77 @@
+[gd_resource type="Theme" format=3 uid="uid://c0thhwyr50lj2"]
+
+[ext_resource type="FontFile" uid="uid://b40h4g7yfnbbl" path="res://ShareTechMono-Regular.ttf" id="1_cmht6"]
+[ext_resource type="Texture2D" uid="uid://cd5738c8kt14q" path="res://Sin título 115-a103.png" id="1_gr44q"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_7n3hy"]
+texture = ExtResource("1_gr44q")
+texture_margin_left = 25.0
+texture_margin_top = 25.0
+texture_margin_right = 25.0
+texture_margin_bottom = 25.0
+expand_margin_left = 20.0
+expand_margin_top = 20.0
+expand_margin_right = 20.0
+expand_margin_bottom = 20.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_x2hje"]
+texture = ExtResource("1_gr44q")
+texture_margin_left = 25.0
+texture_margin_top = 25.0
+texture_margin_right = 25.0
+texture_margin_bottom = 25.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_gr44q"]
+texture = ExtResource("1_gr44q")
+texture_margin_left = 25.0
+texture_margin_top = 25.0
+texture_margin_right = 25.0
+texture_margin_bottom = 25.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_1p8b5"]
+texture = ExtResource("1_gr44q")
+texture_margin_left = 25.0
+texture_margin_top = 25.0
+texture_margin_right = 25.0
+texture_margin_bottom = 25.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_7d5ka"]
+texture = ExtResource("1_gr44q")
+texture_margin_left = 25.0
+texture_margin_top = 25.0
+texture_margin_right = 25.0
+texture_margin_bottom = 25.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_c6nim"]
+texture = ExtResource("1_gr44q")
+texture_margin_left = 25.0
+texture_margin_top = 25.0
+texture_margin_right = 25.0
+texture_margin_bottom = 25.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_2w2dt"]
+texture = ExtResource("1_gr44q")
+texture_margin_left = 25.0
+texture_margin_top = 25.0
+texture_margin_right = 25.0
+texture_margin_bottom = 25.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_kmkyt"]
+texture = ExtResource("1_gr44q")
+texture_margin_left = 25.0
+texture_margin_top = 25.0
+texture_margin_right = 25.0
+texture_margin_bottom = 25.0
+
+[resource]
+resource_local_to_scene = true
+default_font = ExtResource("1_cmht6")
+Button/font_sizes/font_size = 32
+Button/styles/disabled = SubResource("StyleBoxTexture_7n3hy")
+Button/styles/disabled_mirrored = SubResource("StyleBoxTexture_x2hje")
+Button/styles/focus = SubResource("StyleBoxTexture_gr44q")
+Button/styles/hover = SubResource("StyleBoxTexture_1p8b5")
+Button/styles/hover_mirrored = SubResource("StyleBoxTexture_7d5ka")
+Button/styles/hover_pressed = SubResource("StyleBoxTexture_c6nim")
+Button/styles/hover_pressed_mirrored = SubResource("StyleBoxTexture_2w2dt")
+Button/styles/normal = SubResource("StyleBoxTexture_kmkyt")
